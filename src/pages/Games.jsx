@@ -52,7 +52,7 @@ const GamesPage = () => {
 
   return (
     <div style={{ overflowX: "hidden" }}>
-      <GameHeading />
+      {/* <GameHeading /> */}
       <GameProviders gameType={gameType} 
       gameList={gameList} 
       slot_providers = {slot_providers} 

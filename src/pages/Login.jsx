@@ -38,8 +38,8 @@ const LoginPage = () => {
     setLoading(true);
     const loginData = {
       phone: phone,
-      password: password,
-    };
+      password: password
+  };
     fetch(BASE_URL + "/login", {
       method: "POST",
       headers: {

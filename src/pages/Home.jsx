@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Footer from "../components/mobile/Footer";
 import Carousel from "../components/mobile/Carousel";
 import "../assets/css/home.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGift, FaViber } from "react-icons/fa";
   import fb from "../assets/img/fb.png";
  import Marquee from "../components/mobile/Marquee";
@@ -45,7 +45,10 @@ const HomePage = () => {
           console.error("Error during logout:", error);
       }
   };
-
+  const navigate=useNavigate();
+  useEffect(()=>{
+   if(window.location.pathname?.includes('mode=sm') ) navigate('/')
+  },[])
   return (
     <div >
 <div className="px-lg-3">
@@ -69,9 +72,9 @@ const HomePage = () => {
           </div>
         </div>
         </Link>
-        <Link to={'/demo-play?type=slot&&list=JILI'}  className="my-4  w-full text-center d-flex align-items-center justify-content-center gap-2   py-2 cursor-pointer homePlayBtn    text-center rounded-4">
+        {/* <Link to={'/demo-play?type=slot&&list=JILI'}  className="my-4  w-full text-center d-flex align-items-center justify-content-center gap-2   py-2 cursor-pointer homePlayBtn    text-center rounded-4">
            <h2 className=" fw-semibold my-0 py-0 ">DEMO PLAY</h2>
-        </Link>
+        </Link> */}
        <Link to={'/information?tab=transfer'}>
        <button className="w-full py-2 rounded-4 sidebarSocial bg-white text-center text-black fw-bold d-flex justify-content-center flex-nowrap px-2"  >
               <IoWalletOutline size={30} className="me-2" />

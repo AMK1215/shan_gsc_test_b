@@ -12,18 +12,18 @@ const BottomMenu = () => {
   const items = [
     { img: home, link: "/", value: null },
     { img: slot, link: "/games?type=slot&&list=PP", value: "slot" },
-    { img: fish, link: "/games?type=fishing&&list=PlayStar", value: "fishing" },
-    {
-      img: card,
-      link: "/games?type=live casino&&list=PP",
-      value: "live casino",
-    },
-    { img: football, link: "/games?type=sport book", value: "sport book" },
+    // { img: fish, link: "/games?type=fishing&&list=PlayStar", value: "fishing" },
+    // {
+    //   img: card,
+    //   link: "/games?type=live casino&&list=PP",
+    //   value: "live casino",
+    // },
+    // { img: football, link: "/games?type=sport book", value: "sport book" },
   ];
   return (
     <div className="bottomMenu">
       <div className="">
-        <div className="row justify-content-between bottomMenu">
+        <div className="row  bottomMenu">
           {items.map((item, index) => {
             return (
               <div
@@ -32,7 +32,7 @@ const BottomMenu = () => {
                   searchParams.get("type") === item.value
                     ? "  activeFixedBottomIcon"
                     : " "
-                }  col-2 py-3 text-center`}
+                }  col-6 py-3 text-center`}
               >
                 <Link to={item.link}>
                   <img

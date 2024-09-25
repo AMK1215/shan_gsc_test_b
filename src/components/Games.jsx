@@ -5,24 +5,27 @@ import launchGame from "../hooks/LaunchGame";
 
 
 export default function Games({ item, type, loading }) {
-  // console.log(item);
+  console.log(item);
 
   return (
     <>
       {loading ? (
+         <div className="text-center cursor-pointer col-2 px-1 mb-3">
         <Spinner />
+        </div>
       ) : (
-        <div className="cursor-pointer col-2 px-1 mb-3"
+        <div className="cursor-pointer col-2 px-1 mb-4" 
         onClick={launchGame(item.game_type_id, item.product_code, item.code)}
         >
-          <div className="gameCardLg">
+          <div className="gameCardLg" >
             <img src={item.image_url} className="img-fluid rounded-top-3" />
             <div className="rounded-bottom-3 fw-semibold px-2 activeGameList text-white">
-              <h5 className="pt-1 fw-semibold mb-0">
-                {type.toUpperCase()} | Game
-              </h5>
+              <p className="pt-1 fw-semibold mb-0 gameName">
+                {/* {type.toUpperCase()} | Game */}
+                {item.name}
+              </p>
               <div className="d-flex align-items-center gap-2 text-white">
-                <IoGameController size={35} />
+                <IoGameController size={30} />
                 <p className="fw-semibold">68</p>
               </div>
             </div>
