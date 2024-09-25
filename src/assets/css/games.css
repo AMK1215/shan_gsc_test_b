@@ -1,0 +1,129 @@
+.gameCardLg{
+  position: relative ;
+  
+}
+.gameCardLgBtn{
+  opacity: 0;
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  bottom: 45%;
+  right: 10%;
+  background: linear-gradient(to bottom, #8e040d 20%, #b50303 90%);    z-index: 10;
+  transition: all 0.3s ease-in-out;
+}
+.gameCardLg:hover .gameCardLgBtn{
+ opacity: 1;
+ }
+.gameHeading{
+  background: #022C3A;
+  box-shadow: 0 1px 5px 0 rgba(0, 0, 0, .07);
+}
+.activeGameHeading{
+background: linear-gradient(to bottom, #f90402 10%, #a10100 80%) !important;
+}
+.activeFixedBottomIcon{
+background: linear-gradient(to bottom, #f90402 10%, #a10100 80%) !important;
+border-top: 2px solid white;
+}
+.gameHeadingImg{
+  width: 30px;
+  height: 30px;
+  object-position: center;
+}
+.activeGameList{
+ background:#B70202 !important;
+}
+.gameCard{
+  background: linear-gradient(165deg, #1b6270 25%, #164353);
+}
+.gameProviders{
+  background: #164353;
+  overflow-x: scroll;
+
+}
+.gameProvider{
+background: #272626;
+   box-shadow: -1px 1px 6px 0 #00000059;
+  color: #fff;
+}
+.gameProviders::-webkit-scrollbar{
+display: none;
+}
+.gameImg{
+  width: 90%;
+  height: 100%;
+  box-shadow: -1px 1px 6px 0 #00000059;
+
+  /* border: 3px solid #F9B336; */
+}
+.hotgame{
+  width: 90%;
+  height: 200px;
+  border: 3px solid #f2da7c;
+}
+.gameListStart{
+  border-top-left-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+.gameListEnd{
+  border-top-right-radius: 25px;
+  border-bottom-right-radius: 25px;
+}
+.lgGameTab{
+  border-radius: 5px;
+  background: linear-gradient(to right top, #2e6d84 30%, #081e26);
+  transform: skew(160deg);
+ }
+.lgGameTabText{
+  transform: skew(-160deg);
+  font-size: 18px;
+
+}
+.providerImg{
+  height: 60px;
+  width: auto;
+}
+.contactCard,.promotionCard{
+  background: #224137;
+}
+.contactImg{
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+.contactBtn{
+  background: linear-gradient(0deg, #0b5045, #318174) !important;
+  box-shadow: #28282866 0 2px 4px, #28282866 0 7px 13px -3px, #133933 0 -3px inset;
+}  
+
+@media screen and (max-width:600px) {
+.demoImg{
+  height: 100px;
+  object-fit: cover;
+  width: 100vw;
+}
+}
+@media screen and (max-width:550px) {
+.demoImg{
+  height: 80px;
+  object-fit: cover;
+  width: 100vw;
+}
+}
+@media screen and (max-width:500px) {
+  .gameProvider{
+      font-size: 13px;
+  }
+  .hotgame{
+      width: 95%;
+      height: 150px;
+  }
+}
+@media screen and (max-width:400px) {
+.demoImg{
+  height: 60px;
+  object-fit: cover;
+  width: 100vw;
+}
+}
