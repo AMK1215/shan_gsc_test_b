@@ -1,7 +1,23 @@
+.gameName{
+    height: 25px;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    position: relative;
+    display: inline-block;
+     text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 .gameCardLg{
   position: relative ;
-  
-}
+  height: 100%;
+ }
+ .gameCardLg img{
+  min-width: 141.5px;
+  max-width: 141.5px;
+  max-height: 141.5px;
+ }
 .gameCardLgBtn{
   opacity: 0;
   position: absolute;
@@ -33,6 +49,7 @@ border-top: 2px solid white;
 }
 .activeGameList{
  background:#B70202 !important;
+ height:38%;
 }
 .gameCard{
   background: linear-gradient(165deg, #1b6270 25%, #164353);
