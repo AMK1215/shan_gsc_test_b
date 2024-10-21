@@ -12,7 +12,7 @@ const BottomMenu = () => {
   const items = [
     { img: home, link: "/", value: null },
     { img: slot, link: "/games?type=slot&&list=PP", value: "slot" },
-    // { img: fish, link: "/games?type=fishing&&list=PlayStar", value: "fishing" },
+    { img: fish, link: "/games?type=fishing&&list=CQ9", value: "fishing" }
     // {
     //   img: card,
     //   link: "/games?type=live casino&&list=PP",
@@ -23,7 +23,7 @@ const BottomMenu = () => {
   return (
     <div className="bottomMenu">
       <div className="">
-        <div className="row  bottomMenu">
+        <div className="row bottomMenu">
           {items.map((item, index) => {
             return (
               <div
@@ -32,7 +32,7 @@ const BottomMenu = () => {
                   searchParams.get("type") === item.value
                     ? "  activeFixedBottomIcon"
                     : " "
-                }  col-6 py-3 text-center`}
+                }  col-4 py-3 text-center`}
               >
                 <Link to={item.link}>
                   <img

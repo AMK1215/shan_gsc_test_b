@@ -36,7 +36,7 @@ const GamesPage = () => {
 
   let type =
     gameType == "fishing"
-      ? 8
+      ? 4
       : gameType == "live casino"
       ? 2
       : gameType == "sport book"
