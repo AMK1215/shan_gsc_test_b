@@ -5,7 +5,7 @@ import launchGame from "../hooks/LaunchGame";
 
 
 export default function Games({ item, type, loading }) {
-  console.log(item);
+  // console.log(item);
 
   return (
     <>
@@ -15,10 +15,13 @@ export default function Games({ item, type, loading }) {
         </div>
       ) : (
         <div className="cursor-pointer col-2 px-1 mb-4" 
-        onClick={launchGame(item.game_type_id, item.product_code, item.code)}
+        onClick={launchGame(item.game_type_id === 4 ? 8 : item.game_type_id, item.product_code, item.code)}
         >
           <div className="gameCardLg" >
+            <div className="text-center mx-auto">
             <img src={item.image_url} className="img-fluid rounded-top-3" />
+            </div>
+            
             <div className="rounded-bottom-3 fw-semibold px-2 activeGameList text-white">
               <p className="pt-1 fw-semibold mb-0 gameName">
                 {/* {type.toUpperCase()} | Game */}

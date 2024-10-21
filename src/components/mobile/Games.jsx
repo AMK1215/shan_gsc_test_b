@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 export default function Games({games, type}) {
 
-    console.log(games);
+    // console.log(games, type);
   return (
     <div className='mb-5'>
         <div className="row">

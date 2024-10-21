@@ -15,6 +15,7 @@ const GamesPage = () => {
   const { data: casinoGames } = useFetch(BASE_URL + "/gameTypeProducts/2");
   const { data: sportGames } = useFetch(BASE_URL + "/gameTypeProducts/3");
   const { data: fishGames } = useFetch(BASE_URL + "/gameTypeProducts/4");
+  
 
   const slot_providers = slotGames?.game_type?.products;
   const casino_providers = casinoGames?.game_type?.products;

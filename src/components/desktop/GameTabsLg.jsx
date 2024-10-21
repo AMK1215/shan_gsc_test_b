@@ -23,14 +23,16 @@ const GameTabsLg = () => {
   );
   // const { data: casinoGames } = useFetch(BASE_URL + "/gameTypeProducts/2");
   // const { data: sportGames } = useFetch(BASE_URL + "/gameTypeProducts/3");
-  // const { data: fishGames } = useFetch(BASE_URL + "/gameTypeProducts/4");
+
+  const { data: fishGames } = useFetch(BASE_URL + "/gameTypeProducts/4");
+  // console.log("fishing", fishGames);
 
   const slot_providers = slotGames?.game_type?.products;
-  console.log('slot_providers',slot_providers)
+  // console.log('slot_providers',slot_providers)
 
   // const casino_providers = casinoGames?.game_type?.products;
   // const sport_providers = sportGames?.game_lobby?.products;
-  // const fish_providers = fishGames?.game_type?.products;
+  const fish_providers = fishGames?.game_type?.products;
   // console.log(sportGames);
 
   // const { data: game_lists } = useFetch(BASE_URL + "/game/gamelist/1/1");
@@ -40,7 +42,7 @@ const GameTabsLg = () => {
   slot_providers?.map((item) => allProviders.push(item));
   // // casino_providers?.map((item) => allProviders.push(item));
   // // sport_providers?.map((item) => allProviders.push(item));
-  // // fish_providers?.map((item) => allProviders.push(item));
+  fish_providers?.map((item) => allProviders.push(item));
 
   const gameTabs = [
     // { img: all, name: "All Games", name_mm: "ဂိမ်းအားလုံး", value: "all" },
@@ -52,12 +54,12 @@ const GameTabsLg = () => {
     //   name_mm: "ကာစီနို",
     //   value: "live casino",
     // },
-    // {
-    //   img: fish,
-    //   name: "Fishing Games",
-    //   name_mm: "ငါးပစ်ဂိမ်း",
-    //   value: "fishing",
-    // },
+    {
+      img: fish,
+      name: "Fishing Games",
+      name_mm: "ငါးပစ်ဂိမ်း",
+      value: "fishing",
+    }
     // {
     //   img: sport,
     //   name: "Sport Games",
@@ -74,7 +76,7 @@ const GameTabsLg = () => {
   const gameList = searchParams.get("list");
   let type =
     gameType == "fishing"
-      ? 8
+      ? 4
       : gameType == "live casino"
       ? 2
       : gameType == "sport book"
@@ -88,7 +90,7 @@ const GameTabsLg = () => {
   const { data: gameLists, loading: gameLoading } = useFetch(
     BASE_URL + "/game/gamelist/" + provider + "/" + type
   );
-  // console.log(gameLists);
+  // console.log(gameLists, {"type":type});
   useEffect(()=>{
       navigate('?type=slot&list=PP')
     },[])
@@ -100,10 +102,9 @@ const GameTabsLg = () => {
           return (
             <div
               onClick={() => {
-                item.value === "slot" &&
-                  navigate(
-                    `?type=${item.value}&&list=${slot_providers[0].short_name}`
-                  );
+                item.value === "slot" ?
+                  navigate(`?type=${item.value}&list=${slot_providers[0].short_name}`) : 
+                  item.value === "fishing" ? navigate(`?type=${item.value}&list=${fish_providers[0].short_name}`) : navigate(`?type=${item.value}`);
                }}
               key={index}
               className="cursor-pointer col-2 px-1"
@@ -120,6 +121,33 @@ const GameTabsLg = () => {
       {gameType == "slot" && slot_providers && (
         <Swiper className="mySwiper mt-3" slidesPerView={10}>
           {slot_providers.map((list, index) => {
+            return (
+              <SwiperSlide
+                onClick={() => {
+                  navigate(`?type=${gameType}&list=${list.short_name}`);
+                }}
+                key={index}
+              >
+                <div
+                  className={`${
+                    searchParams.get("list") === list.short_name
+                      ? "activeGameList"
+                      : ""
+                  }
+               ${index === 0 && "gameListStart"}
+                ${index === slot_providers.length - 1 && "gameListEnd"}
+                  cursor-pointer text-center fw-semibold py-1 px-3 px-sm-4  gameProvider text-nowrap`}
+                >
+                  {list.short_name}{" "}
+                </div>{" "}
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      )}
+      {gameType == "fishing" && fish_providers && (
+        <Swiper className="mySwiper mt-3" slidesPerView={10}>
+          {fish_providers && fish_providers.map((list, index) => {
             return (
               <SwiperSlide
                 onClick={() => {
